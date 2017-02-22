@@ -2,6 +2,8 @@ from tok_lem import tokenizer, lemmatizer
 from db_stats import give_loc_tf, load_dicts
 from vector import vectorizer, load_vector
 import csv
+from spell_check import correction
+import enchant
 
 def give_score(q_vector, loc_vector, q_vocab):
 
@@ -26,6 +28,8 @@ def read_my_lines(csv_reader, lines_list):
 			if not lines_set:
 				break
 
+
+
 def main():
 	
 	d_path = 'dict.pickle'
@@ -34,7 +38,13 @@ def main():
 	no_to_fetch = 5
 
 	q_raw = input('Enter your query:')
-	q_proc = " ".join(lemmatizer(tokenizer(q_raw)))
+	q_tok = tokenizer(q_raw)
+	#1
+	q_spell = [correction(word) for word in q_tok]
+	#2 context
+	d = enchant.Dict("en_US")
+	q_spell2 = [d.suggest(word)[0] for word in q_spell]
+	q_proc = " ".join(lemmatizer(q_spell2))	
 	
 	posting, vocab, doc_tf, idf = load_dicts(d_path)
 	doc_vector = load_vector(v_path)
