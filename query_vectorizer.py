@@ -12,7 +12,7 @@ import os
 d_path = 'dict.pickle'
 v_path = 'vector.pickle'
 data = './docs2.csv'
-no_to_fetch = 5
+no_to_fetch = 10
 
 def give_score(q_vector, loc_vector, q_vocab):
 
