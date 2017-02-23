@@ -16,9 +16,9 @@ or
 
 2. python update.py
 
-NOTE: The corpus is dynamic. New documents should be appended to the docs.csv file, followed by execution of the update.py script to update the changes. 
+NOTE: The corpus is dynamic. New documents should be appended to the docs.csv file using new Aggregate_<corpus>.py, followed by execution of the update.py script to update the changes. 
 
-Since method used for the representation of the corpus is not known, it has to be converted to universal format. Universal format for storing a corpus is a csv file(docs.csv). Corresponding corpus should be converted into csv format for testing the code. The corpus should be stored with filename docs.csv
+Since method used for the representation of the corpus is not known, it has to be converted to universal format(by making custom Aggregate_<corpus>.py for that corpus). Universal format for storing a corpus is a csv file(docs.csv). Corresponding corpus should be converted into csv format for testing the code. The corpus should be stored with filename docs.csv
 The csv file's first three columns can store any metadata about the documents. And the fourth column contains the document content.
 
 The link to the github repository is https://github.com/itsmeat/CorpusSearch
