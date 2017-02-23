@@ -72,37 +72,37 @@ def read_my_lines(csv_reader, no_of_docs):
 			#print('should not happen')
 			yield line_number, row
 			
-# def main():
+def main():
 	
-# 	data = './docs2.csv'
-# 	count = 0
-# 	path = 'dict.pickle'
+	data = './docs2.csv'
+	count = 0
+	path = 'dict.pickle'
 	
-# 	posting, vocab, doc_tf, idf = load_dicts(path)
-# 	no_of_docs = len(doc_tf)		
-# 	print(no_of_docs)
+	posting, vocab, doc_tf, idf = load_dicts(path)
+	no_of_docs = len(doc_tf)		
+	print(no_of_docs)
 
-# 	reader = csv.reader(open(data, 'r'))
-# 	for line_number, row in read_my_lines(reader, no_of_docs):
-# 		text = row[5]
-# 		count+= 1
-# 		print('Processing', count)
+	reader = csv.reader(open(data, 'r'))
+	for line_number, row in read_my_lines(reader, no_of_docs):
+		text = row[5]
+		count+= 1
+		print('Processing', count)
 		
-# 		loc_tf = give_loc_tf(text)
-# 		loc_vocab = list(loc_tf.keys())
-# 		doc_tf.append(loc_tf)
+		loc_tf = give_loc_tf(text)
+		loc_vocab = list(loc_tf.keys())
+		doc_tf.append(loc_tf)
 		
-# 		vocab_update(loc_vocab, vocab)
-# 		posting_update(loc_vocab, line_number, posting)
+		vocab_update(loc_vocab, vocab)
+		posting_update(loc_vocab, line_number, posting)
 	
 
-# 	print('No. of new documents, total docs: ', count, len(doc_tf))
-# 	print('Size of vocabulary: ', len(vocab))
+	print('No. of new documents, total docs: ', count, len(doc_tf))
+	print('Size of vocabulary: ', len(vocab))
 
-# 	#calculate idf, since all documents scanned
-# 	if count:
-# 		idf = calculate_idf(posting, vocab, no_of_docs+count)
-# 		save_dicts(path, posting, vocab, doc_tf, idf)
+	#calculate idf, since all documents scanned
+	if count:
+		idf = calculate_idf(posting, vocab, no_of_docs+count)
+		save_dicts(path, posting, vocab, doc_tf, idf)
 
-# if __name__ == '__main__':
-# 	main()
+if __name__ == '__main__':
+	main()

@@ -127,12 +127,12 @@ def start(posting,vocab,doc_tf,idf,doc_vector):
 		print ("Lemmatizer Output: ",q_proc);
 
 
-	#if option_num == '2':
+	if option_num == '2':
 		print(" ")
 		print ("Spelling Correction: ", q_spell)
 
 
-	#if option_num == '3':
+	if option_num == '3':
 		print ("Documents returned: ")
 
 		for i in lines_set:
