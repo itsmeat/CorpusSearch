@@ -11,7 +11,7 @@ def tokenizer(sentence):
 def lemmatizer(ls_words):
 	pos_words = nltk.pos_tag(ls_words)
 	wnl = WordNetLemmatizer()
-	lem_words = [wnl.lemmatize(i,j[0].lower()) if j[0].lower() in ['a','n','v'] else wnl.lemmatize(i) for i,j in pos_words]
+	lem_words = [wnl.lemmatize(i,j[0].lower()).lower() if j[0].lower() in ['a','n','v'] else wnl.lemmatize(i) for i,j in pos_words]
 	return lem_words
 
 def main():
@@ -31,6 +31,7 @@ def main():
 					lem_words = lemmatizer(ls_words)				
 					lem_text = lem_text + (" ".join(lem_words))
 					tok_text = tok_text + (" ".join(ls_words))
+
 				writer.writerow([r[0], r[1], r[2], r[3], tok_text, lem_text])
 
 if __name__ == '__main__':

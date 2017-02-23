@@ -14,10 +14,12 @@ for r in reader:
 
 WORDS = Counter(words(text))
 
+N=sum(WORDS.values());
 
-def P(word, N=sum(WORDS.values())): 
+
+def P(word): 
     "Probability of `word`."
-    return WORDS[word] / N
+    return (WORDS[word] / (float)(N))
 
 def correction(word): 
     "Most probable spelling correction for word."
